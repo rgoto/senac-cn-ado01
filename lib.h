@@ -8,5 +8,6 @@ typedef struct {
 
 void teste (int argc, char *argv[]);
 tConversion *verificacaoBasica (int argc, char *argv[]);
+void isHexa(tConversion *t);
 
 #endif
