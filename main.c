@@ -7,6 +7,9 @@
 int main (int argc, char* argv[]) {
     tConversion *t = verificacaoBasica(argc, argv);
 
-    printf("%s\n%d\n%d", t->numero, t->baseAtual, t->baseFutura);
-
+    if(t == NULL) exit(-1);
+    else {
+        printf("%s\n%d\n%d\n", t->numero, t->baseAtual, t->baseFutura);
+        isHexa(t);
+    }
 }
