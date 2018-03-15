@@ -2,12 +2,12 @@
 #define LIB_H
 
 typedef struct {
-    int baseAtual, baseFutura;
+    int baseAtual, baseFutura, lengthNumero;
     char *numero;
 } tConversion;
 
-void teste (int argc, char *argv[]);
+void teste (tConversion *t);
 tConversion *verificacaoBasica (int argc, char *argv[]);
-void isHexa(tConversion *t);
+void removePunctuation (tConversion *t);
 
 #endif
