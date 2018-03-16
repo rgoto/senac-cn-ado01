@@ -7,12 +7,11 @@
 int main (int argc, char* argv[]) {
     tConversion *t = verificacaoBasica(argc, argv);
 
-    if (t == NULL) exit(-1);
+    if (t == NULL) exit(1);
     else {
-        teste(t);
+        parametrization(t);
 
-        removePunctuation(t);
-        stringUpper(t);
+        if (verificacaoBase(t)) exit(1);
 
         teste(t);
     }
