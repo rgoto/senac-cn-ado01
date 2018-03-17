@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
-#include<string.h>
+#include <math.h>
+#include <string.h>
 
 #include "lib.h"
 
@@ -65,7 +66,28 @@
     return num;
     }
 
-    int convesaoBase (tConversion *t) {
+    void convesaoBaseDec (tConversion *t) {
+        for (int character = 0; character < t->lengthNumero; character++) {
+            int mulp;
 
-        return t->numBaseRef;
+            if (isdigit(t->numero[character])){
+                mulp = 0;
+                for (int numeros = ZERO; numeros <= TEN; numeros++) {
+                    if ((int)t->numero[character] == numeros) {
+                        t->numDec  += mulp * pow(t->baseAtual,(t->lengthNumero - character - 1));
+                        break;
+                    }
+                    else mulp++;
+                }
+            } else {
+                mulp = 10;
+                for (int numeros = A; numeros <= Z; numeros++) {
+                    if ((int)t->numero[character] == numeros) {
+                        t->numDec += mulp * pow(t->baseAtual,(t->lengthNumero - character - 1));
+                        break;
+                    }
+                    else mulp++;
+                }
+            }
+        }
     }
