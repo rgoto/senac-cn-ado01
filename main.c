@@ -14,6 +14,8 @@ int main (int argc, char* argv[]) {
         if (verificacaoBase(t)) exit(1);
 
         teste(t);
+        printf("\n");
+        convesaoBaseDec(t);
     }
     return 0;
 }
