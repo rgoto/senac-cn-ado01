@@ -14,8 +14,9 @@ int main (int argc, char* argv[]) {
         if (verificacaoBase(t)) exit(1);
 
         teste(t);
-        printf("\n");
+        printf("\n\n");
         convesaoBaseDec(t);
+        conversionBaseN(t);
     }
     return 0;
 }
