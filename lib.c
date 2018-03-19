@@ -91,3 +91,34 @@
             }
         }
     }
+
+    void conversionBaseN (tConversion *t) {
+        int resto = t->numDec % t->baseFutura,
+            divisor = t->numDec / t->baseFutura,
+            controller = 0;
+
+        while (resto >= 0) {
+            if (resto == 0) {
+                t->resultConversion[controller] = charIdentify(divisor);
+                break;
+            }
+            else
+                t->resultConversion[controller] = charIdentify(resto);
+
+            printf("%s\n", t->numero);
+
+            resto = divisor % t->baseFutura;
+            divisor = divisor / t->baseFutura;
+            controller++;
+        }
+
+        printf("%d  %d  %s\n", resto, divisor, t->numero);
+    }
+
+    char charIdentify (int resto) {
+        char numbers[36];
+        for (int i = 0; i < 36; i++)
+            numbers[i] = (char) i < 10 ? i + '0' : (i-10) + 'A';
+
+        return numbers[resto-1];
+    }
