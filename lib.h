@@ -4,7 +4,7 @@
 typedef struct {
     int baseAtual, baseFutura, lengthNumero, numBaseRef;
     unsigned int numDec;
-    char *numero;
+    char *numero, *resultConversion;
 } tConversion;
 
 enum numeros_alfabeto {
@@ -20,5 +20,7 @@ tConversion *verificacaoBasica (int argc, char *argv[]);
 void parametrization (tConversion *t);
 int verificacaoBase (tConversion *t);
 void convesaoBaseDec (tConversion *t);
+void conversionBaseN (tConversion *t);
+char charIdentify (int resto);
 
 #endif
