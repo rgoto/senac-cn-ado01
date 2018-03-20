@@ -2,9 +2,9 @@
 #define LIB_H
 
 typedef struct {
-    int baseAtual, baseFutura, lengthNumero, numBaseRef;
+    int baseAtual, baseFutura, lengthNumero, numBaseRef, lengthResult;
     unsigned int numDec;
-    char *numero;
+    char *numero, resultConversion[36];
 } tConversion;
 
 enum numeros_alfabeto {
@@ -17,8 +17,9 @@ enum numeros {
 
 void teste (tConversion *t);
 tConversion *verificacaoBasica (int argc, char *argv[]);
-void parametrization (tConversion *t);
 int verificacaoBase (tConversion *t);
 void convesaoBaseDec (tConversion *t);
+void conversionBaseN (tConversion *t);
+int parametrization(tConversion *t);
 
 #endif
