@@ -23,28 +23,24 @@
             t->baseFutura = atoi(argv[3]);
             t->lengthNumero = strlen(argv[1]);
         }
-        if (t->baseAtual < 2 || t->baseAtual > 36 || t->baseFutura < 2 || t->baseFutura > 36)
+        if (t->baseAtual < 2 || t->baseAtual > 36 || t->baseFutura < 2 || t->baseFutura > 36 || parametrization(t))
             t = NULL;
+        else
+            for (int i = 0; i < t->lengthNumero; i++)
+                t->numero[i] = toupper(t->numero[i]);
+
         return t;
     }
 
-    void parametrization (tConversion *t) {
+    int parametrization (tConversion *t) {
+        int x = 0;
         for (int i = 0; i < t->lengthNumero; i++) {
-            if ((t->numero[i] >= 32 && t->numero[i] <= 47) ||
-                (t->numero[i] >= 58 && t->numero[i] <= 64) ||
-                (t->numero[i] >= 91 && t->numero[i] <= 96) ||
-                (t->numero[i] >= 123 && t->numero[i] <= 126) ||
-                (t->numero[i] >= 127)) {
-                    for (int j = i; j < t->lengthNumero; j++)
-                        t->numero[j] = t->numero[j+1];
-
-                    t->lengthNumero = strlen(t->numero);
-                    i = -1;
-                }
+            if ((t->numero[i] >= 32 && t->numero[i] <= 47) || (t->numero[i] >= 58 && t->numero[i] <= 64) ||
+                (t->numero[i] >= 91 && t->numero[i] <= 96) || (t->numero[i] >= 123 && t->numero[i] <= 126) ||
+                (t->numero[i] >= 127))
+                    x = 1;
         }
-
-        for (int i = 0; i < t->lengthNumero; i++)
-            t->numero[i] = toupper(t->numero[i]);
+        return x;
     }
 
     int verificacaoBase (tConversion *t) {
@@ -90,4 +86,26 @@
                 }
             }
         }
+    }
+
+    void conversionBaseN (tConversion *t) {
+        int resto = (t->numDec % t->baseFutura),
+            divisor = (t->numDec / t->baseFutura),
+            controller = 0;
+
+        char alfa[36];
+            for (int i = 0; i < 36; i++) {
+               alfa[i] = (char) i < 10 ? i + '0' : (i-10) + 'A';
+        }
+
+        while (divisor > t->baseFutura) {
+            t->resultConversion[controller++] = alfa[resto];
+
+            resto = divisor % t->baseFutura;
+            divisor = divisor / t->baseFutura;
+        }
+
+        t->resultConversion[controller++] = alfa[resto];
+        t->resultConversion[controller++] = alfa[divisor];
+        t->lengthResult = controller;
     }
