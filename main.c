@@ -13,9 +13,12 @@ int main (int argc, char* argv[]) {
 
         if (verificacaoBase(t)) exit(1);
 
-        teste(t);
-        printf("\n");
         convesaoBaseDec(t);
+        conversionBaseN(t);
+
+        for (int i = t->lengthResult-1; i >= 0 ; i--)
+            printf("%c", t->resultConversion[i]);
+
     }
     return 0;
 }
