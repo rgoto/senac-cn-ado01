@@ -1,0 +1,12 @@
+O Programa recebe os 3 parametros pela a linha de comando sendo:
+      1º Número a ser convertido
+      2º Base atual do número
+      3° Base futura do número
+      
+O programa faz a verificação básica se existem os 3 parametros,
+e também verifica possiveis erros como acentos e outros caracters não validos,
+caso encontre algum, encerra o programa com 1.
+
+Caso os parametros passem por toda a verificação, eles são jogados dentro de uma "capsula" para uma manipulação mais rápida
+
+O número informado pelo o usuário é convertido para base decimal, e aí convertido para a base informada pelo o usuario.
