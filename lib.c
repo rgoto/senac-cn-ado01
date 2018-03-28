@@ -6,13 +6,6 @@
 
 #include "lib.h"
 
-    void teste (tConversion *t) {
-            printf("%s ", t->numero);
-            printf("%d ", t->baseAtual);
-            printf("%d ", t->baseFutura);
-            printf("%d ", t->lengthNumero);
-    }
-
     tConversion *verificacaoBasica (int argc, char *argv[]) {
         tConversion *t = NULL;
 
